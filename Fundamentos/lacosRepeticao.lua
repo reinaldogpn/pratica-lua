@@ -1,4 +1,5 @@
 -- Estruturas de repetição
+
 for i=0, 6, 2 do -- Incrementa 2 a cada iteração
     print(i)
 end

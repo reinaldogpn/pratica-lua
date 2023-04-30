@@ -14,6 +14,7 @@ print(text_a .. " " .. text_b .. ": " .. 16)
 -- string.reverse(string) (reverte a string passada)
 -- string.find(string, string) (encontra correspondências na string; retorna a posição inicial e final caso true)
 -- string.match(string, string) (encontra correspondências na string; retorna a string encontrada)
+-- string.gsub(string, elem1, elem2, qtdElem) (substitui o elem1 pelo elem2 na string quantas vezes indicadas por qtdElem; por padrão, substitui todas as correspondências)
 
 text = "Reinaldo"
 print(string.len(text))
@@ -46,16 +47,46 @@ print(at)
 
 print("----")
 
-from, to = string.find(email, "gmail")
+email = "store@gmail.com"
 
-print(from)
-print(to)
+from, to = string.find(email, "gmail.com")
+
+print(from, to)
+
+print(string.sub(email, from, to))
+
+result = string.match(email, "gmail.com")
+
+print(result)
 
 print("----")
 
 -- Econtrar o provedor de email
 
-email = "store@gmail.com"
+email = "store@yahoo.com.br"
+
 at = string.find(email, "@")
 
-print(string.sub(email, at, #email))
+if at == nil then
+    print("invalid email")
+else
+    provider = string.sub(email, at + 1, #email)
+    print("Provider: " .. provider)
+end
+
+-- Substituições com gsub
+
+text = "Get a box of apples with two apples."
+
+-- from, to = string.find(text, "apples")
+
+-- before = string.sub(text, 1, from -1)
+-- after = string.sub(text, to +1, #text)
+
+-- new_text = before .. "oranges" .. after
+
+result = string.gsub(
+    text, "apples", "oranges", 1
+)
+
+print(result)
