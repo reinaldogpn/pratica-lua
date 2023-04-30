@@ -47,6 +47,6 @@ for index, value in pairs(list) do -- Para obter o indice e o valor
     print(index, value)
 end
 
-for _, value in pairs(list) do -- Para ignorar o indice valor
+for _, value in pairs(list) do -- Para ignorar o indice
     print(value)
 end
